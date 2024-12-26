@@ -7,7 +7,7 @@ const methodOverride = require("method-override");
 const ejsmate = require("ejs-mate");
 const wrapAsync = require("./utils/wrapAsync.js")
 const ExpressError = require("./utils/ExpressError.js");
-
+const { listingSchema } = require("./schema.js")
 
 async function main() {
     await mongoose.connect('mongodb://127.0.0.1:27017/wanderlust');
@@ -30,6 +30,17 @@ app.get("/", (req, res) => {
     res.send("HI, i am a root");
 })
 
+
+const validateListing = (req, res, next) => {
+    let { error } = listingSchema.validate(req.body);
+
+    if (error) {
+        let errMsg = error.details.map((el) => el.message).join(",");
+        throw new ExpressError(400, errMsg);
+    } else {
+        next()
+    }
+}
 //index route
 app.get("/listings", wrapAsync(async (req, res) => {
     const allListing = await Listing.find({});
@@ -50,9 +61,8 @@ app.get("/listings/:id", wrapAsync(async (req, res) => {
 }))
 
 //create new route
-app.post("/listings", wrapAsync(async (req, res, next) => {
+app.post("/listings", validateListing, wrapAsync(async (req, res, next) => {
     // let{title,location,description,price,country}=req.body;
-
 
     const newListing = new Listing(req.body.listing);
     await newListing.save();
@@ -70,7 +80,7 @@ app.get("/listings/:id/edit", wrapAsync(async (req, res) => {
 }))
 
 //update route
-app.put("/listings/:id", wrapAsync(async (req, res) => {
+app.put("/listings/:id", validateListing, wrapAsync(async (req, res) => {
     let { id } = req.params;
     await Listing.findByIdAndUpdate(id, { ...req.body.listing });
     res.redirect(`/listings`);
@@ -93,8 +103,9 @@ app.all("*", (req, res, next) => {
 
 app.use((err, req, res, next) => {
     let { statusCode = 500, message = "Something went wrong" } = err;
-    res.status(statusCode).send(message);
-    // res.send("something went wrong");
+    // res.status(statusCode).send(message);
+    res.status(statusCode).render("listings/error.ejs", { err })
+
 })
 app.listen(8080, () => {
     console.log("server listening on port 8080");
@@ -115,3 +126,6 @@ app.listen(8080, () => {
 //  res.send("successfull testing");
 // })
 //error handling middleware
+
+//joi : it is npm package that is used server side schema
+//we used boostrap classses to validate client side schema now for server side we use joi
