@@ -113,19 +113,3 @@ app.listen(8080, () => {
 
 
 
-// app.get("/testlisting", async (req,res)=>{
-//  let sampleListing = new Listing ({
-//     title : "My new Villa",
-//     description : "By the Beach",
-//     price : 2500,
-//     location : "Calunguta , Goa",
-//     country : "India"
-//  })
-//  await sampleListing.save();
-//  console.log("sample was saved");
-//  res.send("successfull testing");
-// })
-//error handling middleware
-
-//joi : it is npm package that is used server side schema
-//we used boostrap classses to validate client side schema now for server side we use joi
