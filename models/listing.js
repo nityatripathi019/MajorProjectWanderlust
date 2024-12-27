@@ -16,10 +16,10 @@ const listingSchema = new Schema({
     price: Number,
     location: String,
     country: String,
-    reviews: {
+    reviews: [{
         type: Schema.Types.ObjectId,
         ref: "Review",
-    }
+    }]
 });
 
 const Listing = mongoose.model("Listing", listingSchema);
