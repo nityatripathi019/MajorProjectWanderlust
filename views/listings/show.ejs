@@ -1,38 +1,58 @@
 <% layout("/layouts/boilerplate") %>
-<body>
-    <div class="row mt-3">
-        <div class="col-8 offset-2">
-            <h3>Listing Details:</h3>
-        </div>
-    </div>
-    
-    <div class="row">
-        <div class="col-6 offset-2">
-            <div class="card">
-                <img src="<%= listing.image %>" class="card-img-top show-img" alt="listing_image">
-          <div class="card-body">
-            <p class="card-text">
-               <b> <%= listing.title %></b><br>
-                <%= listing.description  %></br>
-                &#8377;<%= listing.price.toLocaleString("en-IN") %>/night<br>
-                <%= listing.location %>
 
-                <%= listing.country %>
-            </p>
-          </div>
+    <body>
+        <div class="row mt-3">
+            <div class="col-8 offset-2">
+                <b>
+                    <%= listing.title %>
+                </b>
             </div>
         </div>
-    </div>
-     
-    
-      <div class="show-btn">
-        <a href="/listings/<%=listing._id %>/edit" class="btn btn-dark offset-2">Edit </a>
-        <br><br>
-        <form method="POST" action="/listings/<%= listing._id %>?_method=DELETE">
-            <button class="btn btn-dark ">Delete </button>
-        </form>
-      </div>
 
-   
+        <div class="row">
+            <div class="col-6 offset-2">
+                <div class="card">
+                    <img src="<%= listing.image %>" class="card-img-top show-img" alt="listing_image">
+                    <div class="card-body">
+                        <p class="card-text">
+                            <%= listing.description %></br>
+                                &#8377;<%= listing.price.toLocaleString("en-IN") %>/night<br>
+                                    <%= listing.location %>
 
-</body>
+                                        <%= listing.country %>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="show-btn">
+            <a href="/listings/<%=listing._id %>/edit" class="btn btn-dark offset-2">Edit </a>
+            <br><br>
+            <form method="POST" action="/listings/<%= listing._id %>?_method=DELETE">
+                <button class="btn btn-dark ">Delete </button>
+            </form>
+        </div>
+
+        <hr>
+
+        <div class="col-8 offset-3 mt-3 mb-4">
+            <h3>Leave a Review</h3>
+            <form action="/listings/<%= listing._id %>/reviews
+             " method="POST">
+                <div>
+                    <label for="rating" class="form-label">Rating</label>
+                    <input type="range" min="1" max="5" name="review[rating]" class="form-range">
+                </div>
+                <div class="mb-3 mt-3">
+                    <label for="comment">Comments</label>
+                    <textarea name="review[comment]" id="comment" cols="30" rows="5" class="form-control"></textarea>
+                </div>
+                <button class="btn btn-outline-dark">Submit</button>
+            </form>
+        </div>
+
+
+
+    </body>
