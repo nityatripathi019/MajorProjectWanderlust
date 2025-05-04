@@ -27,6 +27,18 @@ A full-stack travel listing web application where users can create, view, and re
 - **Other**: Mapbox API (or your preferred Map API), MVC architecture
 
 ---
+## 📁 Project Folder Structure (MVC)
+
+wanderlust/
+│
+├── models/         # Mongoose schemas
+├── routes/         # Express routes
+├── views/          # EJS templates
+├── public/         # Static assets (CSS, JS)
+├── controllers/    # Logic for each route
+├── utils/          # Middleware and helper functions
+└── app.js          # Entry point
+
 
 ## 🖼️ Screenshots
 
