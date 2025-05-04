@@ -1,26 +1,56 @@
-// app.get("/testlisting", async (req,res)=>{
-//  let sampleListing = new Listing ({
-//     title : "My new Villa",
-//     description : "By the Beach",
-//     price : 2500,
-//     location : "Calunguta , Goa",
-//     country : "India"
-//  })
-//  await sampleListing.save();
-//  console.log("sample was saved");
-//  res.send("successfull testing");
-// })
-//error handling middleware
+# Wanderlust 🌍
 
-//joi : it is npm package that is used server side schema
-//we used boostrap classses to validate client side schema now for server side we use joi
+A full-stack travel listing web application where users can create, view, and review destinations. Built using the MERN stack (without React), Wanderlust follows the MVC architecture and integrates features like user authentication, session management, map API, and reviews.
 
-<h3>Handling Deletion </h3>
-<p>isme one to many wala case le rhe suppose kro ek user h aur uske multiple post h ab hmare pass 2 way h deletion k pehla ki agr user delete hota h to usse related sari post delete ho aur dusra jisme user to delete ho jata h but post bni rhteti  h to  issi cheej ko handle krne ko handling deletion khete h </p>
-<ul>
-we use two middelware
-<li>Pre-run before the query is executed</li>
-<li>Post-run after the query is executed</li>
-</ul>
+---
+
+## 🚀 Features
+
+- 🧭 Browse and create travel listings
+- ✍️ Post and manage user reviews
+- 🔐 Authentication and session handling using **Passport.js**
+- 📍 Interactive location maps via **Map API**
+- 💾 Persistent data with **MongoDB**
+- 🎨 Responsive UI using **Bootstrap**
+- 🍪 Session tracking with **cookies**
+- 🧱 Clean structure with **MVC architecture**
+- ☁️ Ready for deployment on **Vercel**
+
+---
+
+## 🛠️ Technologies Used
+
+- **Frontend**: HTML, CSS, Bootstrap
+- **Backend**: Node.js, Express.js
+- **Database**: MongoDB, Mongoose
+- **Authentication**: Passport.js, express-session
+- **Other**: Mapbox API (or your preferred Map API), MVC architecture
+
+---
+
+## 🖼️ Screenshots
+
+_Add screenshots or demo GIFs here if available._
+
+---
+
+## 🧰 Installation
+
+```bash
+# Clone the repository
+git clone https://github.com/nityatripathi019/wanderlust.git
+cd wanderlust
+
+# Install dependencies
+npm install
+
+# Set up environment variables in a .env file
+# Example:
+# DB_URL=your_mongodb_uri
+# SESSION_SECRET=your_secret_key
+# MAPBOX_TOKEN=your_map_api_token
+
+# Start the server
+node app.js
 
 
