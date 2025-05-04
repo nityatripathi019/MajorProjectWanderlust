@@ -1,0 +1,36 @@
+<% layout("/layouts/boilerplate") %>
+
+  <body>
+    <div class="container mt-4">
+      <h2 class="mb-4">Search Results for "<%= location %>"</h2>
+
+      <% if (listings.length> 0) { %>
+        <!-- Create a responsive grid layout for the listings -->
+        <div class="row">
+          <% listings.forEach(listing=> { %>
+            <div class="col-lg-4 col-md-6 col-sm-12 mb-4"> <!-- Adjust the grid columns based on screen size -->
+              <div class="card shadow-sm p-3"> <!-- Add padding to the card -->
+                <img src="<%= listing.image.url %>" class="card-img-top" alt="listing image">
+                <div class="card-body">
+                  <h5 class="card-title mb-3">
+                    <%= listing.title %>
+                  </h5> <!-- Add margin-bottom to title -->
+                  <p class="card-text mb-2">
+                    <%= listing.location %>
+                  </p> <!-- Add margin-bottom to location -->
+                  <p class="card-text mb-3">
+                    <%= listing.description.substring(0, 100) %>...
+                  </p> <!-- Shorten the description -->
+                  <a href="/listings/<%= listing._id %>" class="btn btn-primary">View Details</a>
+                </div>
+              </div>
+            </div>
+            <% }) %>
+        </div>
+        <% } else { %>
+          <div class="alert alert-warning">
+            No results found for "<%= location %>".
+          </div>
+          <% } %>
+    </div>
+  </body>

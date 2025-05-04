@@ -9,9 +9,8 @@ const listingSchema = new Schema({
     },
     description: String,
     image: {
-        type: String,
-        default: "https://media.istockphoto.com/id/1453462931/photo/maldives-hotel-beach-resort-on-tropical-island-with-aerial-drone-view.jpg?s=1024x1024&w=is&k=20&c=OWxWTv4Pf0oUwDdhuOrfjcyceotLLlpHqFwmsBjQIyw=",
-        set: (v) => v === "" ? "https://media.istockphoto.com/id/1453462931/photo/maldives-hotel-beach-resort-on-tropical-island-with-aerial-drone-view.jpg?s=1024x1024&w=is&k=20&c=OWxWTv4Pf0oUwDdhuOrfjcyceotLLlpHqFwmsBjQIyw=" : v,
+        url: String,
+        filename: String,
     },
     price: Number,
     location: String,
@@ -19,7 +18,11 @@ const listingSchema = new Schema({
     reviews: [{
         type: Schema.Types.ObjectId,
         ref: "Review",
-    }]
+    }],
+    owner: {
+        type: Schema.Types.ObjectId,
+        ref: "User",
+    },
 });
 
 //post middleware
