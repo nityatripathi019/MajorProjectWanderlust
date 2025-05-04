@@ -30,15 +30,13 @@ A full-stack travel listing web application where users can create, view, and re
 ## 📁 Project Folder Structure (MVC)
 
 wanderlust/
-│
-├── models/         # Mongoose schemas
-├── routes/         # Express routes
-├── views/          # EJS templates
-├── public/         # Static assets (CSS, JS)
-├── controllers/    # Logic for each route
-├── utils/          # Middleware and helper functions
-└── app.js          # Entry point
-
+├── models/ # Mongoose schemas
+├── routes/ # Express routes
+├── views/ # EJS templates
+├── public/ # Static assets (CSS, JS, images)
+├── controllers/ # Business logic
+├── utils/ # Middleware and helper functions
+└── app.js # Entry point of the app
 
 ## 🖼️ Screenshots
 
