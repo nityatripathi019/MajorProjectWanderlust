@@ -31,7 +31,6 @@ A full-stack travel listing web application where users can create, view, and re
 
 wanderlust/
 <pre> ```bash wanderlust/ ├── models/ # Mongoose schemas ├── routes/ # Express routes ├── views/ # EJS templates ├── public/ # Static assets (CSS, JS, images) ├── controllers/ # Business logic ├── utils/ # Middleware and helper functions └── app.js # Entry point of the app ``` </pre>
-
 ## 🖼️ Screenshots
 
 _Add screenshots or demo GIFs here if available._
