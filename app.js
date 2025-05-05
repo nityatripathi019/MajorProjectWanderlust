@@ -3,9 +3,6 @@ if (process.env.NODE_ENV != "production") {
     require('dotenv').config()
 }
 
-console.log(process.env.SECRECT)
-
-
 const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
@@ -41,7 +38,7 @@ app.engine("ejs", ejsmate);
 app.use(express.static(path.join(__dirname, "/public")));
 
 const sessionoptions = {
-    secret: "mysupersecretstring",
+    secret: process.env.SECRET,
     resave: false,
     saveUninitialized: true,
     cookie: {
@@ -51,9 +48,6 @@ const sessionoptions = {
     }
 };
 
-// app.get("/", (req, res) => {
-//     res.send("HI, i am a root");
-// })
 
 app.use(session(sessionoptions));
 app.use(flash());
@@ -69,17 +63,6 @@ app.use((req, res, next) => {
     res.locals.currUser = req.user;
     next();
 })
-
-//fake user 
-// app.get("/demouser", async (req, res) => {
-//     let fakeuser = new User({
-//         email: "abc@gmail.com",
-//         username: "delta-student",
-//     })
-
-//     let registerdUser = await User.register(fakeuser, "helloworld");
-//     res.send(registerdUser);
-// })
 
 
 app.use("/listings", listingRouter);
