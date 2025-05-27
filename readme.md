@@ -24,7 +24,7 @@ A full-stack travel listing web application where users can create, view, and re
 - **Backend**: Node.js, Express.js
 - **Database**: MongoDB, Mongoose
 - **Authentication**: Passport.js, express-session
-- **Other**: Mapbox API (or your preferred Map API), MVC architecture
+- **Other**: Map API, MVC architecture
 
 ---
 ## 📁 Project Folder Structure (MVC)
