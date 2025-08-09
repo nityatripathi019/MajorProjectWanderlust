@@ -1,4 +1,8 @@
 # Wanderlust - A travelling website 🌍
+## Demo
+
+Check out the live app here: [Wanderlust Listings](https://majorprojectwanderlust-w4n2.onrender.com/listings)
+
 
 A full-stack travel listing web application where users can create, view, and review destinations. Built using the MERN stack (without React), Wanderlust follows the MVC architecture and integrates features like user authentication, session management, map API, and reviews.
 
