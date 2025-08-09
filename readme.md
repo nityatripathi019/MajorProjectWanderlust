@@ -14,7 +14,7 @@ A full-stack travel listing web application where users can create, view, and re
 - 🎨 Responsive UI using **Bootstrap**
 - 🍪 Session tracking with **cookies**
 - 🧱 Clean structure with **MVC architecture**
-- ☁️ Ready for deployment on **Vercel**
+- ☁️ Ready for deployment on **Render**
 
 ---
 
@@ -27,13 +27,35 @@ A full-stack travel listing web application where users can create, view, and re
 - **Other**: Map API, MVC architecture
 
 ---
-## 📁 Project Folder Structure (MVC)
-
-wanderlust
-<pre> ## 📁 Project Structure ``` wanderlust/ ├── models/ # Schemas ├── routes/ # Express routes ├── views/ # Templates ├── public/ # Static files ├── controllers/ # Logic ├── utils/ # Helpers └── app.js # Entry ``` </pre>
 ## 🖼️ Screenshots
+<!-- Centered container for screenshots -->
+<div align="center">
+  <!-- Home Page Image -->
+  <h2>Home Page</h2>
+  <img src="screenshots/wanderlust.png" alt="Home Page" width="45%" />
+  
+  <!-- Review Page Image -->
+  <h2>Review Page</h2>
+  <img src="screenshots/wanderlust2.jpg" alt="Review Page" width="45%" />
+  
+  <!-- Two images side by side -->
+  <p>
+    <img src="screenshots/screenshot3.jpg" alt="Map Integration" width="45%" />
+    <img src="screenshots/screenshot4.jpg" alt="Login Page" width="45%" />
+  </p>
+</div>
 
-_Add screenshots or demo GIFs here if available._
+## 📁 Project Folder Structure (MVC)
+```plaintext
+wanderlust/
+├── models/        # Schemas
+├── routes/        # Express routes
+├── views/         # Templates
+├── public/        # Static files
+├── controllers/   # Logic
+├── utils/         # Helpers
+└── app.js         # Entry
+
 
 ---
 
