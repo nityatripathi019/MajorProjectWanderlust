@@ -123,3 +123,17 @@
     border: none;
     margin-right: 1.2rem;
   }
+
+  /* Map styling */
+  #map {
+    height: 300px !important;
+    width: 80vh !important;
+
+
+  }
+
+  .mapboxgl-popup.booking-popup .mapboxgl-popup-content {
+    padding: 8px;
+    background-color: whitesmoke;
+    font-size: 12px;
+  }

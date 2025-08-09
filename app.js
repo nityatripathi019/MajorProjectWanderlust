@@ -10,7 +10,8 @@ const path = require("path");
 const methodOverride = require("method-override");
 const ejsmate = require("ejs-mate");
 const ExpressError = require("./utils/ExpressError.js");
-const session = require("express-session")
+const session = require("express-session");
+const MongoStore = require('connect-mongo');
 const flash = require("connect-flash");
 const passport = require("passport");
 const LocalStrategy = require("passport-local");
@@ -19,9 +20,10 @@ const User = require("./models/user.js");
 const listingRouter = require("./routers/listing.js");
 const reviewRouter = require("./routers/review.js");
 const userRouter = require("./routers/user.js");
-
+const dbUrl = process.env.ATLASDB_URL;
 async function main() {
-    await mongoose.connect('mongodb://127.0.0.1:27017/wanderlust');
+    await mongoose.connect(dbUrl);
+
 }
 main().then(() => {
     console.log("mongo connection successfull")
@@ -37,7 +39,18 @@ app.use(methodOverride("_method"));
 app.engine("ejs", ejsmate);
 app.use(express.static(path.join(__dirname, "/public")));
 
+const store = MongoStore.create({
+    mongoUrl: dbUrl,
+    crypto: {
+        secret: process.env.SECRET,
+    },
+    touchAfter: 24 * 3600,
+})
+store.on("error", (err) => {
+    console.log("Error in mongo store", err);
+})
 const sessionoptions = {
+    store: store,
     secret: process.env.SECRET,
     resave: false,
     saveUninitialized: true,
@@ -76,7 +89,7 @@ app.all("*", (req, res, next) => {
 
 app.use((err, req, res, next) => {
     let { statusCode = 500, message = "Something went wrong" } = err;
-    // res.status(statusCode).send(message);
+
     res.status(statusCode).render("listings/error.ejs", { err })
 
 })
