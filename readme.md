@@ -1,4 +1,4 @@
-# Wanderlust 🌍
+# Wanderlust - A travelling website 🌍
 
 A full-stack travel listing web application where users can create, view, and review destinations. Built using the MERN stack (without React), Wanderlust follows the MVC architecture and integrates features like user authentication, session management, map API, and reviews.
 
